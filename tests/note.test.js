@@ -5,7 +5,7 @@ describe("Note", () => {
         it("should create an object with an id, title and text if provided valid arguments", () => {
             const note = new Note(1, "Travel", "Buy the tickets.");
 
-            expect(emp.id).toEqual(1);
+            expect(note.id).toEqual(1);
             expect(note.title).toEqual("Travel");
             expect(note.text).toEqual("Buy the tickets.");
         });
@@ -55,14 +55,14 @@ describe("Note", () => {
         });
 
         it("should throw an error if 'title' is not a string", () => {
-            const cb = () => new Note(3, "Buy the tickets.");
+            const cb = () => new Note(3, "", "Buy the tickets.");
             const err = new Error("Expected parameter 'title' to be a non-empty string");
 
             expect(cb).toThrowError(err);
         });
 
         it("should throw an error if 'text' is not a string", () => {
-            const cb = () => new Note("Travel", 3);
+            const cb = () => new Note(1, "Travel", 3);
             const err = new Error("Expected parameter 'text' to be a non-empty string");
 
             expect(cb).toThrowError(err);
@@ -73,9 +73,9 @@ describe("Note", () => {
 
     describe("getId", () => {
         it("should return the id of the note", () => {
-            const emp = new Note(1, "Travel", "Buy the tickets.");
+            const note = new Note(1, "Travel", "Buy the tickets.");
 
-            const res = emp.getTitle();
+            const res = note.getId();
 
             expect(res).toEqual(1);
         });
@@ -83,9 +83,9 @@ describe("Note", () => {
 
     describe("getTitle", () => {
         it("should return the title of the note", () => {
-            const emp = new Note(1, "Travel", "Buy the tickets.");
+            const note = new Note(1, "Travel", "Buy the tickets.");
 
-            const res = emp.getTitle();
+            const res = note.getTitle();
 
             expect(res).toEqual("Travel");
         });
@@ -93,9 +93,9 @@ describe("Note", () => {
 
     describe("getText", () => {
         it("should return the text of the note", () => {
-            const emp = new Note(1, "Travel", "Buy the tickets.");
+            const note = new Note(1, "Travel", "Buy the tickets.");
 
-            const res = emp.getText();
+            const res = note.getText();
 
             expect(res).toEqual("Buy the tickets.");
         });
