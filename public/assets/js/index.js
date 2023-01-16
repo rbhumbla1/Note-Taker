@@ -3,7 +3,6 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
-let count = 1;
 
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
@@ -71,7 +70,6 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   const newNote = {
-    id: count,
     title: noteTitle.value,
     text: noteText.value,
   };
@@ -140,7 +138,6 @@ const renderNoteList = async (notes) => {
 
     const spanEl = document.createElement('span');
     spanEl.classList.add('list-item-title');
-    count++;
     spanEl.innerText = text;
     spanEl.addEventListener('click', handleNoteView);
 

@@ -48,7 +48,7 @@ const readAndDelete = (noteId, file) => {
       let i = 0;
 
       while (i < parsedData.length) {
-        if (parsedData[i].id === parseInt(noteId)) {
+        if (parsedData[i].id === noteId) {
         
           parsedData.splice(i, 1);
           break;

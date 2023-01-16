@@ -1,37 +1,22 @@
 [
     {
-        "id": 1,
+        "id": "id1",
         "title": "Test Title",
         "text": "Test text"
     },
     {
-        "id": 2,
+        "id": "id2",
         "title": "Rima test",
         "text": "This is atest"
     },
     {
-        "id": 3,
-        "title": "Class test",
-        "text": "To see what class looks like"
-    },
-    {
-        "id": 5,
-        "title": "TRavel",
-        "text": "Buy tickets"
-    },
-    {
-        "id": 6,
-        "title": "count test",
-        "text": "let seeif countis set properly"
-    },
-    {
-        "id": 12,
-        "title": "test after del",
-        "text": "to checkif delete didn't mess things up"
-    },
-    {
-        "id": 18,
+        "id": "id4",
         "title": "test for + ",
         "text": "to see ifit is working"
+    },
+    {
+        "id": "adb22f10-f0b3-4e59-a6dd-0f58793eda1b",
+        "title": "test test",
+        "text": "test test test test"
     }
 ]

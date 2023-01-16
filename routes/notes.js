@@ -1,4 +1,5 @@
 const notes = require('express').Router();
+const { v4: uuidv4 } = require('uuid');
 const { readAndAppend, readFromFile, readAndDelete } = require('../helpers/fsUtils');
 const Note = require('../lib/note');
 
@@ -13,7 +14,8 @@ notes.post('/', (req, res) => {
   // Logic for appending data to the db/db.json file
   if (req.body) {
     //create Note object
-    let newNote = new Note(req.body.id, req.body.title, req.body.text);
+    
+    let newNote = new Note(uuidv4(), req.body.title, req.body.text);
 
 
     readAndAppend(newNote, './db/db.json');
@@ -28,7 +30,7 @@ notes.delete('/:id', (req, res) => {
     const noteId = req.params.id;
 
     // Logic for appending data to the db/db.json file
-    if (noteId > 0) {
+    if (noteId) {
       readAndDelete(noteId, './db/db.json');
       res.json(`Note deleted successfully 🚀`);
     } else {
