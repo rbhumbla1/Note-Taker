@@ -2,9 +2,10 @@ const Note = require("../lib/note");
 
 describe("Note", () => {
     describe("Initialization", () => {
-        it("should create an object with a title and text if provided valid arguments", () => {
-            const note = new Note("Travel", "Buy the tickets.");
+        it("should create an object with an id, title and text if provided valid arguments", () => {
+            const note = new Note(1, "Travel", "Buy the tickets.");
 
+            expect(emp.id).toEqual(1);
             expect(note.title).toEqual("Travel");
             expect(note.text).toEqual("Buy the tickets.");
         });
@@ -15,9 +16,17 @@ describe("Note", () => {
             expect(cb).toThrow();
         });
 
+        it("should throw an error if not provided an id", () => {
+
+            const cb = () =>  new Note("Travel", "Buy the tickets.");
+            const err = new Error("Expected parameter 'id' to be a non-negative number");
+
+            expect(cb).toThrowError(err);
+        });
+
         it("should throw an error if not provided a title", () => {
 
-            const cb = () => new Note("", "Buy the tickets.");
+            const cb = () => new Note(1, "", "Buy the tickets.");
             const err = new Error("Expected parameter 'title' to be a non-empty string");
 
             expect(cb).toThrowError(err);
@@ -25,8 +34,22 @@ describe("Note", () => {
 
         it("should throw an error if not provided some text", () => {
 
-            const cb = () => new Note("Travel", "");
+            const cb = () => new Note(1, "Travel", "");
             const err = new Error("Expected parameter 'text' to be a non-empty string");
+
+            expect(cb).toThrowError(err);
+        });
+
+        it("should throw an error if 'id' is not a number", () => {
+            const cb = () => new Note("note", "Travel", "Buy the tickets.");
+            const err = new Error("Expected parameter 'id' to be a non-negative number");
+
+            expect(cb).toThrowError(err);
+        });
+
+        it("should throw an error if 'id' is less than 0", () => {
+            const cb = () => new Note(-1, "Travel", "Buy the tickets.");
+            const err = new Error("Expected parameter 'id' to be a non-negative number");
 
             expect(cb).toThrowError(err);
         });
@@ -48,9 +71,19 @@ describe("Note", () => {
         
     });
 
+    describe("getId", () => {
+        it("should return the id of the note", () => {
+            const emp = new Note(1, "Travel", "Buy the tickets.");
+
+            const res = emp.getTitle();
+
+            expect(res).toEqual(1);
+        });
+    });
+
     describe("getTitle", () => {
         it("should return the title of the note", () => {
-            const emp = new Note("Travel","Buy the tickets.");
+            const emp = new Note(1, "Travel", "Buy the tickets.");
 
             const res = emp.getTitle();
 
@@ -60,7 +93,7 @@ describe("Note", () => {
 
     describe("getText", () => {
         it("should return the text of the note", () => {
-            const emp = new Note("Travel","Buy the tickets.");
+            const emp = new Note(1, "Travel", "Buy the tickets.");
 
             const res = emp.getText();
 
