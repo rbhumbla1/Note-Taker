@@ -33,7 +33,7 @@ const readAndAppend = (content, file) => {
 
 /**
  *  Function to read data from a given a file and append some content
- *  @param {object} content The content you want to append to the file.
+ *  @param {object} id The id of the note you want to delete.
  *  @param {string} file The path to the file you want to save to.
  *  @returns {void} Nothing
  */

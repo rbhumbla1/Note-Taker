@@ -14,7 +14,7 @@ notes.post('/', (req, res) => {
   if (req.body) {
     //create Note object
     let newNote = new Note(req.body.id, req.body.title, req.body.text);
-    //console.log("class", newNote)
+
 
     readAndAppend(newNote, './db/db.json');
     res.json(`Note added successfully 🚀`);
@@ -34,7 +34,7 @@ notes.delete('/:id', (req, res) => {
     } else {
       res.error('Error in deleting the note');
     }
-  });
+  }); 
 
 module.exports = notes;
 
