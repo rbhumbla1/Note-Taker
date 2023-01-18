@@ -4,7 +4,7 @@ const { clog } = require('./middleware/clog');
 const api = require('./routes/index.js');
 
 //For heroku deployment
-const PORT = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
