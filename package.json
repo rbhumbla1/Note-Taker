@@ -8,6 +8,7 @@
     "test": "tests"
   },
   "scripts": {
+    "start": "node server",
     "test": "jest"
   },
   "author": "",
