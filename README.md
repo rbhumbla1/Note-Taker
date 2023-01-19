@@ -50,7 +50,7 @@ Test Screenshot:
 
 ## Usage
 1. You can access the file in GitHub repository: https://github.com/rbhumbla1/Note-Taker
-2. Run the application deployed on heroku using this url: 
+2. Run the application deployed on heroku using this url: https://limitless-island-97368.herokuapp.com/
 
 ## License
 None
